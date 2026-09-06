@@ -33,6 +33,11 @@
   --color-error: #d9534f;
   --color-error-text: #ba1a1a;
 
+  /* Accents */
+  --color-accent-mint: #c8ead8;
+  --color-accent-peach: #ffdbcd;
+  --color-accent-sage: #d4e9c4;
+
   /* Badges */
   --color-badge-easy-bg: #d4e9c4;
   --color-badge-easy-text: #3a4c31;

@@ -1,3 +1,11 @@
+import HeroBanner from '@/components/HeroBanner/HeroBanner';
+import FeatureCards from '@/components/FeatureCards/FeatureCards';
+
 export default function HomePage() {
-  return <h1>Keep your plants alive</h1>;
+  return (
+    <>
+      <HeroBanner />
+      <FeatureCards />
+    </>
+  );
 }
