@@ -1,0 +1,37 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-align: center;
+  border-radius: var(--radius-pill);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.primary {
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+}
+
+.primary:hover,
+.primary:focus-visible {
+  background-color: var(--color-primary-hover);
+}
+
+.secondary {
+  color: var(--color-border-outline);
+  border: 1px solid var(--color-border-outline);
+}
+
+.secondary:hover,
+.secondary:focus-visible {
+  color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
