@@ -1,3 +1,9 @@
+body {
+  font-family: var(--font-main);
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-page);
+}
+
 html {
   scroll-behavior: smooth;
 }

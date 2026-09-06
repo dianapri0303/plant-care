@@ -1,6 +1,24 @@
 import type { Metadata } from 'next';
+import { Literata, Plus_Jakarta_Sans } from 'next/font/google';
 import 'modern-normalize/modern-normalize.css';
+import '@/styles/variables.css';
 import './globals.css';
+
+const literata = Literata({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-heading',
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-body',
+});
 
 export const metadata: Metadata = {
   title: 'Keep your plants alive',
@@ -14,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${jakarta.variable} ${literata.variable}`}>
       <body>{children}</body>
     </html>
   );

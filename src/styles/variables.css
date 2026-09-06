@@ -1,0 +1,48 @@
+:root {
+  /* Typography */
+  --font-main: var(--font-body), sans-serif;
+  --font-second: var(--font-heading), serif;
+
+  /* Brand */
+  --color-primary: #163428;
+  --color-primary-hover: #255542;
+  --color-primary-disabled: rgba(22, 52, 40, 0.2);
+
+  /* Text */
+  --color-text-dark: #1a1c1a;
+  --color-text-muted: #424844;
+  --color-text-placeholder: #727974;
+  --color-text-inverse: #ffffff;
+  --color-text-accent: #964824;
+
+  /* Backgrounds */
+  --color-bg-page: #faf9f6;
+  --color-bg-card: #ffffff;
+  --color-bg-header: #c1c8c3;
+  --color-bg-footer: #f4f3f1;
+  --color-bg-input: #f4f3f1;
+
+  /* Borders */
+  --color-border: #e5e2d9;
+  --color-border-input: #c1c8c3;
+  --color-border-outline: #727974;
+  --color-avatar-ring: #adcebd;
+
+  /* Feedback */
+  --color-success: #2d4b3e;
+  --color-error: #d9534f;
+  --color-error-text: #ba1a1a;
+
+  /* Badges */
+  --color-badge-easy-bg: #d4e9c4;
+  --color-badge-easy-text: #3a4c31;
+  --color-badge-medium-bg: #fd9a6f;
+  --color-badge-medium-text: #76300d;
+  --color-badge-hard-bg: #ffdbcd;
+  --color-badge-hard-text: #77320e;
+  --color-badge-neutral-bg: #e9e8e5;
+  --color-badge-neutral-text: #424844;
+
+  /* Radius */
+  --radius-pill: 9999px;
+}
