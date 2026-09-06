@@ -1,11 +1,18 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: var(--font-main);
   color: var(--color-text-dark);
   background-color: var(--color-bg-page);
 }
 
-html {
-  scroll-behavior: smooth;
+main {
+  flex-grow: 1;
 }
 
 h1,
