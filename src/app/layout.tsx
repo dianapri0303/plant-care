@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Literata, Plus_Jakarta_Sans } from 'next/font/google';
+import Header from '@/components/Header/Header';
 import 'modern-normalize/modern-normalize.css';
 import '@/styles/variables.css';
 import './globals.css';
@@ -33,7 +34,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${jakarta.variable} ${literata.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
