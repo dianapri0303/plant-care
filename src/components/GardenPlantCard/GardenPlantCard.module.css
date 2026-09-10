@@ -1,0 +1,138 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  background-color: var(--color-bg-card);
+}
+
+.photoLink {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 192px;
+  overflow: hidden;
+  background-color: var(--color-bg-input);
+}
+
+.photo {
+  object-fit: cover;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+}
+
+.nickname {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-primary);
+  transition: color 0.2s ease;
+}
+
+.nickname:hover,
+.nickname:focus-visible {
+  color: var(--color-primary-hover);
+}
+
+.species {
+  font-weight: 500;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.33;
+  color: var(--color-text-placeholder);
+}
+
+.badge {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  border-radius: var(--radius-pill);
+}
+
+.badgeHealthy {
+  color: #012116;
+  background-color: var(--color-avatar-ring);
+}
+
+.badgeAttention {
+  color: var(--color-badge-medium-text);
+  background-color: var(--color-badge-medium-bg);
+}
+
+.badgeCritical {
+  color: var(--color-error-text);
+  background-color: var(--color-badge-hard-bg);
+}
+
+.watering {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.wateringIcon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--color-text-placeholder);
+}
+
+.button {
+  width: 100%;
+  padding: 10px 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-text-accent);
+  border: 1px solid var(--color-text-accent);
+  border-radius: var(--radius-pill);
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.button:hover:not(:disabled),
+.button:focus-visible:not(:disabled) {
+  color: var(--color-text-inverse);
+  background-color: var(--color-text-accent);
+}
+
+.buttonFilled {
+  color: var(--color-text-inverse);
+  background-color: var(--color-text-accent);
+}
+
+.buttonFilled:hover:not(:disabled),
+.buttonFilled:focus-visible:not(:disabled) {
+  opacity: 0.85;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

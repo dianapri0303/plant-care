@@ -85,125 +85,133 @@ export default function UserCard() {
   const avatarSrc = preview || user?.avatarUrl;
 
   return (
-    <div className={css.card}>
-      <Formik
-        initialValues={{ name: user?.name ?? '', phone: user?.phone ?? '' }}
-        validationSchema={profileSchema}
-        onSubmit={handleSubmit}
-        enableReinitialize
-      >
-        <Form className={css.form}>
-          <div className={css.top}>
-            <div className={css.form}>
-              <div className={css.field}>
-                <label className={css.label} htmlFor="name">
-                  Name
-                </label>
-                <Field
-                  id="name"
-                  name="name"
-                  placeholder="Your name"
-                  className={css.input}
-                />
-                <ErrorMessage name="name" component="p" className={css.error} />
+    <div className={css.wrapper}>
+      <div className={css.card}>
+        <Formik
+          initialValues={{ name: user?.name ?? '', phone: user?.phone ?? '' }}
+          validationSchema={profileSchema}
+          onSubmit={handleSubmit}
+          enableReinitialize
+        >
+          <Form className={css.form}>
+            <div className={css.top}>
+              <div className={css.form}>
+                <div className={css.field}>
+                  <label className={css.label} htmlFor="name">
+                    Name
+                  </label>
+                  <Field
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    className={css.input}
+                  />
+                  <ErrorMessage
+                    name="name"
+                    component="p"
+                    className={css.error}
+                  />
+                </div>
+
+                <div className={css.field}>
+                  <label className={css.label} htmlFor="email">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    value={user?.email ?? ''}
+                    className={css.input}
+                    disabled
+                    readOnly
+                  />
+                  <p className={css.hint}>Email can&apos;t be changed</p>
+                </div>
+
+                <div className={css.field}>
+                  <label className={css.label} htmlFor="phone">
+                    Phone
+                  </label>
+                  <Field
+                    id="phone"
+                    name="phone"
+                    placeholder="+380..."
+                    className={css.input}
+                  />
+                  <ErrorMessage
+                    name="phone"
+                    component="p"
+                    className={css.error}
+                  />
+                  <p className={css.hint}>
+                    International format, starts with +
+                  </p>
+                </div>
               </div>
 
-              <div className={css.field}>
-                <label className={css.label} htmlFor="email">
-                  Email
-                </label>
+              <div className={css.avatarWrapper}>
+                <div className={css.avatar}>
+                  {avatarSrc ? (
+                    <Image
+                      src={avatarSrc}
+                      alt=""
+                      width={144}
+                      height={144}
+                      className={css.avatarImage}
+                      unoptimized={Boolean(preview)}
+                    />
+                  ) : (
+                    <PersonIcon />
+                  )}
+                </div>
+
+                <button
+                  type="button"
+                  className={css.editPhoto}
+                  onClick={() => fileRef.current?.click()}
+                  aria-label="Change photo"
+                >
+                  <svg viewBox="0 0 25 25" fill="none">
+                    <path
+                      d="M2.75862 22.069H4.72414L18.2069 8.58621L16.2414 6.62069L2.75862 20.1034V22.069ZM0 24.8276V18.9655L18.2069 0.793103C18.4828 0.54023 18.7874 0.344828 19.1207 0.206897C19.454 0.0689655 19.8046 0 20.1724 0C20.5402 0 20.8966 0.0689655 21.2414 0.206897C21.5862 0.344828 21.8851 0.551724 22.1379 0.827586L24.0345 2.75862C24.3103 3.01149 24.5115 3.31034 24.6379 3.65517C24.7644 4 24.8276 4.34483 24.8276 4.68966C24.8276 5.05747 24.7644 5.40805 24.6379 5.74138C24.5115 6.07471 24.3103 6.37931 24.0345 6.65517L5.86207 24.8276H0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+
                 <input
-                  id="email"
-                  type="email"
-                  value={user?.email ?? ''}
-                  className={css.input}
-                  disabled
-                  readOnly
+                  ref={fileRef}
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp"
+                  className={css.fileInput}
+                  onChange={handleFileChange}
                 />
-                <p className={css.hint}>Email can&apos;t be changed</p>
-              </div>
-
-              <div className={css.field}>
-                <label className={css.label} htmlFor="phone">
-                  Phone
-                </label>
-                <Field
-                  id="phone"
-                  name="phone"
-                  placeholder="+380..."
-                  className={css.input}
-                />
-                <ErrorMessage
-                  name="phone"
-                  component="p"
-                  className={css.error}
-                />
-                <p className={css.hint}>International format, starts with +</p>
               </div>
             </div>
 
-            <div className={css.avatarWrapper}>
-              <div className={css.avatar}>
-                {avatarSrc ? (
-                  <Image
-                    src={avatarSrc}
-                    alt=""
-                    width={144}
-                    height={144}
-                    className={css.avatarImage}
-                    unoptimized={Boolean(preview)}
-                  />
-                ) : (
-                  <PersonIcon />
-                )}
+            <div className={css.stats}>
+              <div className={css.stat}>
+                <span className={css.statValue}>{stats?.plantCount ?? 0}</span>
+                <span className={css.statLabel}>Plants in garden</span>
               </div>
-
-              <button
-                type="button"
-                className={css.editPhoto}
-                onClick={() => fileRef.current?.click()}
-                aria-label="Change photo"
-              >
-                <svg viewBox="0 0 25 25" fill="none">
-                  <path
-                    d="M2.75862 22.069H4.72414L18.2069 8.58621L16.2414 6.62069L2.75862 20.1034V22.069ZM0 24.8276V18.9655L18.2069 0.793103C18.4828 0.54023 18.7874 0.344828 19.1207 0.206897C19.454 0.0689655 19.8046 0 20.1724 0C20.5402 0 20.8966 0.0689655 21.2414 0.206897C21.5862 0.344828 21.8851 0.551724 22.1379 0.827586L24.0345 2.75862C24.3103 3.01149 24.5115 3.31034 24.6379 3.65517C24.7644 4 24.8276 4.34483 24.8276 4.68966C24.8276 5.05747 24.7644 5.40805 24.6379 5.74138C24.5115 6.07471 24.3103 6.37931 24.0345 6.65517L5.86207 24.8276H0Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </button>
-
-              <input
-                ref={fileRef}
-                type="file"
-                accept="image/jpeg,image/png,image/webp"
-                className={css.fileInput}
-                onChange={handleFileChange}
-              />
+              <div className={`${css.stat} ${css.statPeach}`}>
+                <span className={css.statValue}>
+                  {stats?.wateringStreak ?? 0}
+                </span>
+                <span className={css.statLabel}>Day watering streak</span>
+              </div>
             </div>
-          </div>
 
-          <div className={css.stats}>
-            <div className={css.stat}>
-              <span className={css.statValue}>{stats?.plantCount ?? 0}</span>
-              <span className={css.statLabel}>Plants in garden</span>
-            </div>
-            <div className={css.stat}>
-              <span className={css.statValue}>
-                {stats?.wateringStreak ?? 0}
-              </span>
-              <span className={css.statLabel}>Day watering streak</span>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            className={css.submit}
-            disabled={profileMutation.isPending}
-          >
-            {profileMutation.isPending ? 'Saving...' : 'save changes'}
-          </button>
-        </Form>
-      </Formik>
+            <button
+              type="submit"
+              className={css.submit}
+              disabled={profileMutation.isPending}
+            >
+              {profileMutation.isPending ? 'Saving...' : 'save changes'}
+            </button>
+          </Form>
+        </Formik>
+      </div>
 
       <button
         type="button"
