@@ -28,3 +28,8 @@ export const refreshSession = async () => {
 export const logout = async () => {
   await api.post('/api/auth/logout');
 };
+
+export const updateProfile = async (data: FormData) => {
+  const res = await api.patch<User>('/api/users/profile', data);
+  return res.data;
+};
