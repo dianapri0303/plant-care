@@ -1,9 +1,8 @@
 export type HealthStatus = 'healthy' | 'needs_attention' | 'critical';
 
 export interface WateringLog {
-  _id?: string;
-  date: string;
-  note?: string;
+  _id: string;
+  wateredAt: string;
 }
 
 export interface GardenSpecies {
@@ -24,7 +23,7 @@ export interface GardenPlant {
   acquiredAt: string;
   wateringFrequencyDays: number;
   nextWateringAt: string;
-  healthStatus: HealthStatus;
+  healthStatus?: HealthStatus;
   wateringLogs?: WateringLog[];
   createdAt: string;
   updatedAt: string;

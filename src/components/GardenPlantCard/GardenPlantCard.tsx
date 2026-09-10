@@ -48,7 +48,8 @@ export default function GardenPlantCard({ plant }: { plant: GardenPlant }) {
     onError: () => toast.error('Could not mark the plant as watered'),
   });
 
-  const isUrgent = plant.healthStatus !== 'healthy';
+  const status = plant.healthStatus ?? 'healthy';
+  const isUrgent = status !== 'healthy';
 
   return (
     <article className={css.card}>
@@ -71,8 +72,8 @@ export default function GardenPlantCard({ plant }: { plant: GardenPlant }) {
             <span className={css.species}>{plant.speciesName}</span>
           </div>
 
-          <span className={`${css.badge} ${badgeClass[plant.healthStatus]}`}>
-            {badgeLabel[plant.healthStatus]}
+          <span className={`${css.badge} ${badgeClass[status]}`}>
+            {badgeLabel[status]}
           </span>
         </div>
 
