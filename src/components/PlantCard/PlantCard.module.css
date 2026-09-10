@@ -32,7 +32,7 @@
 
 .badge {
   position: absolute;
-  bottom: 12px;
+  top: 12px;
   left: 12px;
   padding: 4px 12px;
   font-weight: 500;

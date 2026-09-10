@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import type { Difficulty, Light, Plant } from '@/types/plant';
+import type { Difficulty, Humidity, Light, Plant } from '@/types/plant';
 import css from './PlantCard.module.css';
 
 const badgeClass: Record<Difficulty, string> = {
@@ -18,6 +18,12 @@ const lightLabel: Record<Light, string> = {
   full_sun: 'Full sun',
   bright_indirect: 'Bright indirect',
   low_light: 'Low light',
+};
+
+const humidityLabel: Record<Humidity, string> = {
+  low: 'Low humidity',
+  medium: 'Medium humidity',
+  high: 'High humidity',
 };
 
 const SunIcon = () => (
@@ -100,7 +106,7 @@ export default function PlantCard({ plant }: { plant: Plant }) {
         <p className={css.scientific}>{plant.scientificName}</p>
 
         <div className={css.footer}>
-          <span className={css.humidity}>{lightLabel[plant.light]}</span>
+          <span className={css.humidity}>{humidityLabel[plant.humidity]}</span>
           <span className={css.arrow}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path
