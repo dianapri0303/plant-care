@@ -1,0 +1,78 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 20px 0;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-second);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--color-primary);
+}
+
+.text {
+  max-width: 420px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--color-text-muted);
+}
+
+.button {
+  min-height: 56px;
+  margin-top: 16px;
+  padding: 16px 40px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+  box-shadow:
+    0 8px 10px -6px rgba(0, 0, 0, 0.1),
+    0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: var(--color-primary-hover);
+}
+
+.illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 256px;
+  height: 256px;
+  margin-top: 32px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bg-footer);
+}
+
+.pot {
+  width: 128px;
+  height: 160px;
+  border: 4px solid var(--color-border-input);
+  border-radius: 8px 8px 40px 40px;
+}
+
+.soil {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border-input);
+}

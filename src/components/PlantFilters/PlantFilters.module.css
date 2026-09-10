@@ -1,0 +1,157 @@
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.searchWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search {
+  width: 100%;
+  padding: 13px 44px 13px 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-input);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.search:focus {
+  border-color: var(--color-primary);
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  color: var(--color-text-placeholder);
+  pointer-events: none;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  padding: 6px 12px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-pill);
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.chip:hover,
+.chip:focus-visible {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.chipActive,
+.chipActive:hover,
+.chipActive:focus-visible {
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.radioList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.radioInput {
+  appearance: none;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-pill);
+  transition: border-color 0.2s ease;
+}
+
+.radioInput:checked {
+  border: 6px solid var(--color-primary);
+}
+
+.radioInput:hover,
+.radioInput:focus-visible {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.radioText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.radioInput:checked + .radioText {
+  font-weight: 500;
+  color: var(--color-text-dark);
+}
+
+.reset {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.05em;
+  color: var(--color-text-accent);
+  transition: opacity 0.2s ease;
+}
+
+.reset:hover,
+.reset:focus-visible {
+  opacity: 0.7;
+}
