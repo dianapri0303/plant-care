@@ -1,0 +1,127 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  background-color: var(--color-bg-card);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 20px -12px rgba(22, 52, 40, 0.35);
+}
+
+.photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-bg-input);
+}
+
+.leaf {
+  color: var(--color-border-input);
+}
+
+.badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  border-radius: var(--radius-pill);
+}
+
+.badgeEasy {
+  color: var(--color-badge-easy-text);
+  background-color: var(--color-badge-easy-bg);
+}
+
+.badgeMedium {
+  color: var(--color-badge-medium-text);
+  background-color: var(--color-badge-medium-bg);
+}
+
+.badgeHard {
+  color: var(--color-badge-hard-text);
+  background-color: var(--color-badge-hard-bg);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 4px;
+  padding: 24px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.title {
+  font-family: var(--font-second);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--color-primary);
+}
+
+.icons {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  padding-top: 6px;
+  color: var(--color-text-placeholder);
+}
+
+.scientific {
+  padding-bottom: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(193, 200, 195, 0.3);
+}
+
+.humidity {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.arrow {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--color-primary);
+  transition: transform 0.2s ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(4px);
+}
