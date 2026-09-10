@@ -7,6 +7,7 @@ import './globals.css';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import Providers from '@/components/Providers/Providers';
+import AuthProvider from '@/components/AuthProvider/AuthProvider';
 
 const literata = Literata({
   subsets: ['latin'],
@@ -39,9 +40,11 @@ export default function RootLayout({
     <html lang="en" className={`${jakarta.variable} ${literata.variable}`}>
       <body>
         <Providers>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <AuthProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </AuthProvider>
         </Providers>
       </body>
     </html>

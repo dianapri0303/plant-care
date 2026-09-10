@@ -20,3 +20,11 @@ export const getCurrentUser = async () => {
   const res = await api.get<User>('/api/users/current');
   return res.data;
 };
+
+export const refreshSession = async () => {
+  await api.get('/api/auth/session');
+};
+
+export const logout = async () => {
+  await api.post('/api/auth/logout');
+};

@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useAuthStore } from '@/store/authStore';
 import css from './Header.module.css';
 
 const navLinks = [
@@ -11,6 +13,11 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
+  const user = useAuthStore(state => state.user);
+  const isAuthenticated = useAuthStore(state => state.isAuthenticated);
+  const isLoading = useAuthStore(state => state.isLoading);
+
+  const initial = (user?.name || user?.email || '?').charAt(0).toUpperCase();
 
   return (
     <header className={css.header}>
@@ -35,12 +42,32 @@ export default function Header() {
         </nav>
 
         <div className={css.actions}>
-          <Link href="/login" className={css.login}>
-            Log in
-          </Link>
-          <Link href="/register" className={css.signup}>
-            Sign up
-          </Link>
+          {isLoading ? (
+            <span className={css.actionsPlaceholder} />
+          ) : isAuthenticated ? (
+            <Link href="/garden" className={css.avatar} aria-label="My garden">
+              {user?.avatarUrl ? (
+                <Image
+                  src={user.avatarUrl}
+                  alt=""
+                  width={40}
+                  height={40}
+                  className={css.avatarImage}
+                />
+              ) : (
+                <span className={css.avatarFallback}>{initial}</span>
+              )}
+            </Link>
+          ) : (
+            <>
+              <Link href="/login" className={css.login}>
+                Log in
+              </Link>
+              <Link href="/register" className={css.signup}>
+                Sign up
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>
