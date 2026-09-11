@@ -18,7 +18,15 @@ export const addPlant = async (data: FormData) => {
   return res.data;
 };
 
-export const updatePlant = async (id: string, data: FormData) => {
+export const updatePlant = async (
+  id: string,
+  data: Partial<{
+    nickname: string;
+    speciesId: string;
+    location: string;
+    wateringFrequencyDays: number;
+  }>,
+) => {
   const res = await api.patch<GardenPlant>(`/api/garden/${id}`, data);
   return res.data;
 };

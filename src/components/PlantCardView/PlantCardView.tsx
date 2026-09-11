@@ -4,7 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-import { getGardenPlantById, waterPlant } from '@/lib/api/garden';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import ModalEditPlant from '@/components/ModalEditPlant/ModalEditPlant';
+import ModalConfirm from '@/components/ModalConfirm/ModalConfirm';
+import { getGardenPlantById, waterPlant, deletePlant } from '@/lib/api/garden';
 import css from './PlantCardView.module.css';
 
 const DAY = 1000 * 60 * 60 * 24;
@@ -54,6 +58,15 @@ const PencilIcon = () => (
   </svg>
 );
 
+const TrashIcon = () => (
+  <svg width="16" height="18" viewBox="0 0 16 18" fill="none">
+    <path
+      d="M3 18C2.45 18 1.97917 17.8042 1.5875 17.4125C1.19583 17.0208 1 16.55 1 16V3H0V1H5V0H11V1H16V3H15V16C15 16.55 14.8042 17.0208 14.4125 17.4125C14.0208 17.8042 13.55 18 13 18H3ZM13 3H3V16H13V3ZM5 14H7V5H5V14ZM9 14H11V5H9V14Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
 const PlusIcon = () => (
   <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
     <path
@@ -72,6 +85,21 @@ const daysAgo = (iso: string) => {
 
 export default function PlantCardView({ id }: { id: string }) {
   const queryClient = useQueryClient();
+
+  const router = useRouter();
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+
+  const deleteMutation = useMutation({
+    mutationFn: () => deletePlant(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['garden'] });
+      queryClient.invalidateQueries({ queryKey: ['stats'] });
+      toast.success('Plant removed');
+      router.push('/garden');
+    },
+    onError: () => toast.error('Could not remove the plant'),
+  });
 
   const {
     data: plant,
@@ -211,9 +239,19 @@ export default function PlantCardView({ id }: { id: string }) {
         <button
           type="button"
           className={`${css.actionButton} ${css.actionSecondary}`}
+          onClick={() => setIsEditOpen(true)}
         >
           <PencilIcon />
           Edit info
+        </button>
+
+        <button
+          type="button"
+          className={`${css.actionButton} ${css.actionDanger}`}
+          onClick={() => setIsConfirmOpen(true)}
+        >
+          <TrashIcon />
+          Remove
         </button>
       </div>
 
@@ -258,6 +296,17 @@ export default function PlantCardView({ id }: { id: string }) {
           </ul>
         )}
       </section>
+      {isEditOpen && (
+        <ModalEditPlant plant={plant} onClose={() => setIsEditOpen(false)} />
+      )}
+
+      {isConfirmOpen && (
+        <ModalConfirm
+          onClose={() => setIsConfirmOpen(false)}
+          onConfirm={() => deleteMutation.mutate()}
+          isPending={deleteMutation.isPending}
+        />
+      )}
     </div>
   );
 }

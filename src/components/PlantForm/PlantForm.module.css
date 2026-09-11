@@ -1,0 +1,349 @@
+.form {
+  display: contents;
+}
+
+.photoRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.preview {
+  position: relative;
+  flex-shrink: 0;
+  width: 133px;
+  height: 133px;
+  overflow: hidden;
+  border-radius: 24px;
+  background-color: #d9d9d9;
+}
+
+.previewImage {
+  object-fit: cover;
+}
+
+.photoSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.chooseFile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 245px;
+  padding: 13px 16px 14px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-input);
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.chooseFile:hover,
+.chooseFile:focus-visible {
+  background-color: var(--color-border-input);
+}
+
+.chooseFileIcon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--color-text-dark);
+}
+
+.hint {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  color: #6b7280;
+}
+
+.fileInput {
+  display: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 13px 16px 14px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-outline);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input::placeholder {
+  color: #6b7280;
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+}
+
+.inputWithIcon {
+  padding-left: 44px;
+}
+
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  display: flex;
+  color: var(--color-border-outline);
+  transition: color 0.2s ease;
+}
+
+.iconButton {
+  cursor: pointer;
+}
+
+.iconButton:hover,
+.iconButton:focus-visible {
+  color: var(--color-primary);
+}
+
+.dateInput::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.dateInput::-webkit-inner-spin-button {
+  display: none;
+}
+
+.select {
+  position: relative;
+}
+
+.selectButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 12px 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-outline);
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.selectOpen {
+  border-bottom-color: var(--color-primary);
+  border-radius: 8px 8px 0 0;
+}
+
+.selectArrow {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--color-primary);
+  transition: transform 0.2s ease;
+}
+
+.selectArrowOpen {
+  transform: rotate(180deg);
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  max-height: 202px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border-input);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  background-color: var(--color-bg-page);
+  box-shadow:
+    0 8px 10px -6px rgba(0, 0, 0, 0.1),
+    0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.option {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--color-text-dark);
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.option:hover,
+.option:focus-visible,
+.optionActive {
+  color: #99baa9;
+  background-color: var(--color-success);
+}
+
+.watering {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.wateringHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.wateringValue {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-primary);
+}
+
+.range {
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background-color: #e9e8e5;
+  outline: none;
+  cursor: pointer;
+}
+
+.range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.rangeLabels {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--color-text-placeholder);
+}
+
+.error {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--color-error-text);
+}
+
+.cancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 142px;
+  min-height: 48px;
+  padding: 16px 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: var(--color-border-outline);
+  border: 1px solid var(--color-border-outline);
+  border-radius: var(--radius-pill);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cancel:hover,
+.cancel:focus-visible {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 142px;
+  min-height: 48px;
+  padding: 16px 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+  transition: background-color 0.2s ease;
+}
+
+.submit:hover:not(:disabled),
+.submit:focus-visible:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.submit:disabled {
+  background-color: var(--color-primary-disabled);
+  cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+  .photoRow {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .cancel,
+  .submit {
+    flex: 0 0 197px;
+  }
+}

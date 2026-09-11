@@ -123,7 +123,7 @@ export default function PlantDetails({ plant }: { plant: Plant }) {
           <p className={css.description}>{plant.description}</p>
 
           <div className={css.actions}>
-            <AddToGardenBtn speciesId={plant._id} />
+            <AddToGardenBtn />{' '}
           </div>
         </div>
       </div>

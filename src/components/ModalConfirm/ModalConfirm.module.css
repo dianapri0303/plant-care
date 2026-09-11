@@ -1,0 +1,85 @@
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 218, 214, 0.2);
+  color: var(--color-error-text);
+}
+
+.title {
+  padding-bottom: 8px;
+  font-family: var(--font-second);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.33;
+  text-align: center;
+  color: var(--color-text-dark);
+}
+
+.text {
+  width: 280px;
+  padding: 0 10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  width: 256px;
+  padding-top: 40px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 50%;
+  min-height: 48px;
+  padding: 16px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-pill);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.cancel {
+  color: var(--color-error-text);
+  border: 1px solid var(--color-error-text);
+}
+
+.cancel:hover,
+.cancel:focus-visible {
+  color: var(--color-text-inverse);
+  background-color: var(--color-error-text);
+}
+
+.confirm {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-inverse);
+  background-color: var(--color-error-text);
+}
+
+.confirm:hover:not(:disabled),
+.confirm:focus-visible:not(:disabled) {
+  opacity: 0.85;
+}
+
+.confirm:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

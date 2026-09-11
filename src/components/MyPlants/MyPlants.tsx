@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import GardenPlantCard from '@/components/GardenPlantCard/GardenPlantCard';
+import ModalAddPlant from '@/components/ModalAddPlant/ModalAddPlant';
 import { getGarden } from '@/lib/api/garden';
 import css from './MyPlants.module.css';
 
@@ -14,6 +15,7 @@ const tabs = [
 
 export default function MyPlants() {
   const [filter, setFilter] = useState('all');
+  const [isAddOpen, setIsAddOpen] = useState(false);
 
   const { data, isPending, isError } = useQuery({
     queryKey: ['garden', filter],
@@ -25,7 +27,11 @@ export default function MyPlants() {
       <div className={css.head}>
         <h2 className={css.title}>My plants</h2>
 
-        <button type="button" className={css.addButton}>
+        <button
+          type="button"
+          className={css.addButton}
+          onClick={() => setIsAddOpen(true)}
+        >
           <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
             <path
               d="M3.5 4.66667H0V3.5H3.5V0H4.66667V3.5H8.16667V4.66667H4.66667V8.16667H3.5V4.66667Z"
@@ -70,6 +76,8 @@ export default function MyPlants() {
           ))}
         </div>
       )}
+
+      {isAddOpen && <ModalAddPlant onClose={() => setIsAddOpen(false)} />}
     </section>
   );
 }

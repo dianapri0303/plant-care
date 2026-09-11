@@ -233,6 +233,18 @@
   background-color: var(--color-text-accent);
 }
 
+.actionDanger {
+  padding: 16px 24px;
+  color: var(--color-error-text);
+  border: 2px solid var(--color-error-text);
+}
+
+.actionDanger:hover,
+.actionDanger:focus-visible {
+  color: var(--color-text-inverse);
+  background-color: var(--color-error-text);
+}
+
 .journal {
   display: flex;
   flex-direction: column;
