@@ -9,6 +9,8 @@ export interface Plant {
   scientificName: string;
   commonName: string;
   photoUrl: string;
+  image?: string;
+  feedbacksId?: string[];
   description: string;
   light: Light;
   wateringFrequency: WateringFrequency;

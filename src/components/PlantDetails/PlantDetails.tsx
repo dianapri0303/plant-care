@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { Humidity, Light, Plant } from '@/types/plant';
 import AddToGardenBtn from '@/components/AddToGardenBtn/AddToGardenBtn';
 import css from './PlantDetails.module.css';
@@ -102,20 +103,14 @@ export default function PlantDetails({ plant }: { plant: Plant }) {
     <section className={css.section}>
       <div className={css.hero}>
         <div className={css.photo}>
-          <svg
-            width="120"
-            height="120"
-            viewBox="0 0 24 24"
-            fill="none"
-            className={css.leaf}
-            role="img"
-            aria-label={plant.photoUrl}
-          >
-            <path
-              d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8Z"
-              fill="currentColor"
-            />
-          </svg>
+          <Image
+            src={plant.image || plant.photoUrl}
+            alt={plant.commonName}
+            fill
+            sizes="(min-width: 1440px) 632px, 100vw"
+            className={css.photoImage}
+            priority
+          />
           <span className={css.photoOverlay} />
         </div>
 

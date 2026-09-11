@@ -24,6 +24,10 @@
   background-color: var(--color-bg-input);
 }
 
+.photoImage {
+  object-fit: cover;
+}
+
 .photoOverlay {
   position: absolute;
   inset: 0;
@@ -32,10 +36,6 @@
     rgba(0, 0, 0, 0.2) 0%,
     rgba(0, 0, 0, 0) 100%
   );
-}
-
-.leaf {
-  color: var(--color-border-input);
 }
 
 .info {

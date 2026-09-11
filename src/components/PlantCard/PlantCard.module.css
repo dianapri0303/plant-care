@@ -23,11 +23,12 @@
   align-items: center;
   justify-content: center;
   aspect-ratio: 1 / 1;
+  overflow: hidden;
   background-color: var(--color-bg-input);
 }
 
-.leaf {
-  color: var(--color-border-input);
+.photoImage {
+  object-fit: cover;
 }
 
 .badge {
